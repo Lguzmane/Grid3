@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "navbar navbar"
+        "sidebar filter"
+        "sidebar main"
+        "sidebar pagination"
+        "sidebar social"
+        "sidebar footer";
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto auto 1fr auto auto auto;
+    height: 100vh;
+}
+
+
+.navbar {
+    grid-area: navbar;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #03a00e;
+    color: white;
+    padding: 1rem;
+}
+
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+
+.hamburger-menu {
+    display: none;
+}
+
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #156c1e;
+    color: white;
+    padding: 1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 1rem;
+}
+
+
+.filter-section {
+    grid-area: filter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f1f1f1;
+}
+
+
+.product-grid {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.product-card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #f4f4f4;
+    margin-bottom: 1rem;
+}
+
+.product-card button {
+    background-color: #046417;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Sección de paginación */
+.pagination {
+    grid-area: pagination;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.pagination a {
+    color: #046417;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 0 4px;
+    background-color: #fff;
+    border: 1px solid #046417;
+    border-radius: 4px;
+}
+
+.pagination a:hover {
+    background-color: #046417;
+    color: white;
+}
+
+/* Barra lateral de redes sociales */
+.social-sidebar {
+    grid-area: social;
+    background-color: #156c1e;
+    padding: 1rem;
+    text-align: center;
+}
+
+.social-icons img {
+    height: 50px;
+}
+
+/* Estilos para el footer */
+.footer {
+    grid-area: footer;
+    background-color: #156c1e;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Estilo Escritorio */
+@media (min-width: 576px) {
+    .container {
+        grid-template-areas:
+            "navbar navbar"
+            "sidebar filter"
+            "sidebar main"
+            "sidebar pagination"
+            "sidebar social"
+            "sidebar footer";
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: auto auto 1fr auto auto auto;
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
+
+    .filter-section {
+        justify-content: flex-end;
+    }
+
+    .social-sidebar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Estilos Móviles */
+@media (max-width: 576px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .filter-section {
+        width: 100%;
+    }
+
+    .social-sidebar {
+        display: none;
+    }
+
+    .footer {
+        grid-column: span 2;
+    }
+}
